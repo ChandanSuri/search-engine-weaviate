@@ -2,13 +2,10 @@
 .env
 *.env
 
-# Ignore TOML files
-*.toml
-
 # Ignore directories starting with a dot
 .*/
 
 # Ignore the entire Dataset folder
 Dataset/
 
-!pyproject.toml
+!.streamlit

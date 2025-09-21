@@ -1,0 +1,15 @@
+[theme]
+# A professional, calming blue for interactive elements
+primaryColor="#3B82F6"
+
+# A deep, near-black for the main background
+backgroundColor="#0E1117"
+
+# A slightly lighter slate gray for cards, modals, and sidebars
+secondaryBackgroundColor="#181E29"
+
+# A soft white for text that's easy to read
+textColor="#FAFAFA"
+
+# Use a clean, modern sans-serif font
+font="sans serif"
