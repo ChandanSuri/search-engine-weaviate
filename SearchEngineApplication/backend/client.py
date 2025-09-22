@@ -131,6 +131,39 @@ class OpenAIClientSingleton:
             logger.error(f"Error creating OpenAI response: {str(e)}")
             raise
 
+    async def create_completion(
+        self,
+        messages: List[Dict],
+        max_tokens: int = 50,
+        temperature: float = 0.3,
+        model: str = "gpt-4o"
+    ) -> Dict:
+        """
+        Create a simple completion using the standard Chat Completions API
+        """
+        try:
+            logger.debug(f"Creating completion with {len(messages)} messages")
+
+            response = await self.client.chat.completions.create(
+                model=model,
+                messages=messages,
+                max_tokens=max_tokens,
+                temperature=temperature
+            )
+
+            content = response.choices[0].message.content.strip()
+            logger.debug(f"Completion content: '{content}'")
+
+            return {
+                "content": content,
+                "model": response.model,
+                "usage": response.usage.model_dump() if response.usage else None
+            }
+
+        except Exception as e:
+            logger.error(f"Error creating completion: {str(e)}")
+            raise
+
     async def list_conversation_responses(
         self,
         conversation_id: Optional[str] = None,

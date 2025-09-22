@@ -7,7 +7,11 @@ logger = logging.getLogger(__name__)
 
 def render_product_card(product: Dict) -> None:
     """Render an individual product card with modal details"""
-    stars = "⭐" * int(product["rating"]) + "☆" * (5 - int(product["rating"]))
+    rating = product.get("rating", 0)
+    stars = "⭐" * int(rating) + "☆" * (5 - int(rating)) if rating > 0 else "No rating"
+
+    color_display = product.get('color', 'N/A') if product.get('color') else 'N/A'
+    price_display = product.get('price', 'Price not available')
 
     st.markdown(
         f"""
@@ -15,6 +19,9 @@ def render_product_card(product: Dict) -> None:
             <div>
                 <div class="card-title">{product['title']}</div>
                 <div class="card-brand">{product['brand']}</div>
+                <div style="color: #94A3B8; margin-top: 0.5rem;">
+                    Color: {color_display} | {price_display}
+                </div>
             </div>
         </div>
         """,
@@ -29,9 +36,29 @@ def render_product_card(product: Dict) -> None:
     if modal.is_open():
         with modal.container():
             st.markdown(f"### {product['title']}")
-            st.markdown(f"**Brand:** {product['brand']}")
-            st.markdown(f"**Color:** {product['color']}")
-            st.write(product['description'])
+            col1, col2 = st.columns(2)
+
+            with col1:
+                st.markdown(f"**Brand:** {product['brand']}")
+                st.markdown(f"**Color:** {color_display}")
+                st.markdown(f"**Price:** {price_display}")
+                if rating > 0:
+                    st.markdown(f"**Rating:** {stars} ({rating}/5)")
+
+            with col2:
+                st.markdown(f"**Product ID:** {product['id']}")
+                if product.get('reviews', 0) > 0:
+                    st.markdown(f"**Reviews:** {product['reviews']}")
+
+            if product.get('description'):
+                st.markdown("**Description:**")
+                # Remove HTML tags from description for better display
+                clean_description = product['description'].replace('<br>', '\n').replace('<BR>', '\n')
+                st.markdown(clean_description)
+
+            if product.get('bullet_points'):
+                st.markdown("**Key Features:**")
+                st.markdown(product['bullet_points'])
 
 def render_search_results(products: List[Dict]) -> None:
     """Render the complete search results section"""

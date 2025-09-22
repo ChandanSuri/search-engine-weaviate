@@ -1,6 +1,6 @@
 import streamlit as st
 import logging
-from utils import check_backend_health
+from utils import check_backend_health, get_available_brands, get_available_colors, search_products
 from components.search_interface import render_search_interface
 from components.chat import render_chat_interface
 from components.search_results import render_search_results
@@ -98,6 +98,33 @@ custom_css = """
         background-color: #0E1117;
         border: 1px solid #334155;
     }
+
+    /* Fix sidebar icon rendering */
+    [data-testid="stSidebarNav"] button,
+    [data-testid="collapsedControl"] button,
+    [data-testid="stSidebar"] button {
+        font-family: 'Inter', 'Source Sans Pro', sans-serif !important;
+    }
+
+    /* Ensure proper icon font loading */
+    [data-testid="stSidebarNav"] svg,
+    [data-testid="collapsedControl"] svg {
+        display: inline-block !important;
+        width: 16px !important;
+        height: 16px !important;
+    }
+
+    /* Fix sidebar expand/collapse button */
+    [data-testid="baseButton-header"] {
+        background-color: transparent !important;
+        color: #FAFAFA !important;
+    }
+
+    /* Ensure sidebar control icons render correctly */
+    button[kind="headerNoPadding"] {
+        color: #FAFAFA !important;
+        font-size: 16px !important;
+    }
 </style>
 """
 st.markdown(custom_css, unsafe_allow_html=True)
@@ -112,6 +139,16 @@ if "session_id" not in st.session_state:
     st.session_state.session_id = None
 if "backend_connected" not in st.session_state:
     st.session_state.backend_connected = check_backend_health()
+if "brands_cache" not in st.session_state:
+    st.session_state.brands_cache = None
+if "colors_cache" not in st.session_state:
+    st.session_state.colors_cache = None
+if "cache_loaded" not in st.session_state:
+    st.session_state.cache_loaded = False
+if "active_brand_filter" not in st.session_state:
+    st.session_state.active_brand_filter = None
+if "active_color_filter" not in st.session_state:
+    st.session_state.active_color_filter = None
 
 logger.info(f"App started - Backend connected: {st.session_state.backend_connected}")
 
@@ -124,6 +161,107 @@ if not st.session_state.searched:
     render_search_interface()
 else:
     logger.info(f"Rendering search results view (session: {st.session_state.session_id})")
+
+    # Add search filters in sidebar
+    with st.sidebar:
+        st.markdown("### 🔍 Search Filters")
+
+        if st.button("🔄 New Search", use_container_width=True):
+            logger.info("New search button clicked")
+            st.session_state.searched = False
+            st.session_state.messages = []
+            st.session_state.products = []
+            st.session_state.session_id = None
+            # Reset filters when starting new search
+            st.session_state.active_brand_filter = None
+            st.session_state.active_color_filter = None
+            st.rerun()
+
+        st.markdown("---")
+        st.markdown("#### Filter Products")
+
+        # Get original search query from session state
+        original_query = ""
+        if st.session_state.messages:
+            original_query = st.session_state.messages[0]["content"]
+
+        # Show active filters
+        active_filters = []
+        if st.session_state.active_brand_filter:
+            active_filters.append(f"🏷️ Brand: {st.session_state.active_brand_filter}")
+        if st.session_state.active_color_filter:
+            active_filters.append(f"🎨 Color: {st.session_state.active_color_filter}")
+
+        if active_filters:
+            st.markdown("**Active Filters:**")
+            for filter_text in active_filters:
+                st.markdown(f"- {filter_text}")
+
+            if st.button("🗑️ Clear Filters", use_container_width=True):
+                st.session_state.active_brand_filter = None
+                st.session_state.active_color_filter = None
+                # Perform search with original query and no filters
+                if original_query:
+                    try:
+                        with st.spinner("🔍 Searching without filters..."):
+                            unfiltered_results = search_products(original_query)
+
+                        if unfiltered_results and unfiltered_results.get("products"):
+                            st.session_state.products = unfiltered_results["products"]
+                            st.success(f"Filters cleared - showing all {len(unfiltered_results['products'])} results")
+                            st.rerun()
+                    except Exception as e:
+                        logger.error(f"Error clearing filters: {str(e)}")
+                        st.error("Error clearing filters")
+
+        # Continue with existing code
+
+        # Load brands/colors cache if not already loaded
+        if not st.session_state.cache_loaded and st.session_state.backend_connected:
+            with st.spinner("Loading filters..."):
+                try:
+                    st.session_state.brands_cache = get_available_brands() or []
+                    st.session_state.colors_cache = get_available_colors() or []
+                    st.session_state.cache_loaded = True
+                except Exception as e:
+                    logger.error(f"Failed to load cache: {str(e)}")
+                    st.session_state.brands_cache = []
+                    st.session_state.colors_cache = []
+                    st.session_state.cache_loaded = True  # Prevent retry loops
+
+        # Brand filter
+        brands = st.session_state.brands_cache or []
+        brand_options = ["All Brands"] + brands
+        selected_brand = st.selectbox("Brand:", brand_options, key="brand_filter")
+
+        # Color filter
+        colors = st.session_state.colors_cache or []
+        color_options = ["All Colors"] + colors
+        selected_color = st.selectbox("Color:", color_options, key="color_filter")
+
+        # Save filters button
+        if st.button("💾 Save Filter Settings", use_container_width=True):
+            brand_filter = None if selected_brand == "All Brands" else selected_brand
+            color_filter = None if selected_color == "All Colors" else selected_color
+
+            # Store filters in session state for future searches
+            st.session_state.active_brand_filter = brand_filter
+            st.session_state.active_color_filter = color_filter
+
+            filter_description = []
+            if brand_filter:
+                filter_description.append(f"Brand: {brand_filter}")
+            if color_filter:
+                filter_description.append(f"Color: {color_filter}")
+
+            if filter_description:
+                st.success(f"✅ Filters saved: {', '.join(filter_description)}")
+                st.info("💡 These filters will be applied to your next search query!")
+            else:
+                st.success("✅ All filters cleared!")
+
+            logger.info(f"Filter settings saved - Brand: {brand_filter}, Color: {color_filter}")
+            st.rerun()
 
     chat_col, results_col = st.columns([1, 3])
 
