@@ -103,17 +103,49 @@ SearchEngineWeaviate/
 
 ## 🎨 **User Interface Showcase**
 
-### **Professional Design System**
-- **Modern Aesthetic** - Clean, professional interface with gradient accents
-- **Interactive Elements** - Sophisticated hover effects and smooth animations
-- **Responsive Layout** - Optimized for desktop, tablet, and mobile devices
-- **Accessibility** - WCAG-compliant design with proper color contrast
+### **🚀 Complete User Journey**
 
-### **Advanced UI Features**
-- **Dynamic Filtering** - Real-time filter application with visual feedback
-- **Card Animations** - Professional hover effects with scaling and lighting
-- **Chat Interface** - Streaming responses with typing indicators
-- **Modal Details** - Comprehensive product information in elegant popups
+#### **Initial Search Experience**
+![Initial Search Page](SearchEngineApplication/assets/InitalSearchPage.png)
+*Clean, intuitive landing page with prominent search functionality*
+
+#### **Real-time Search Processing**
+![Search In Progress](SearchEngineApplication/assets/InitialSearchInProgress.png)
+*Professional loading states with engaging animations*
+
+#### **Rich Search Results**
+![Post Search Results](SearchEngineApplication/assets/FirstTimePostSearch.png)
+*Comprehensive results display with chat integration and filtering options*
+
+#### **Advanced Conversational Search**
+![Second Search In Progress](SearchEngineApplication/assets/SecondSearchInProgress.png)
+*AI-powered conversational search with context preservation*
+
+![Second Search Results](SearchEngineApplication/assets/SecondSearchResults.png)
+*Enhanced results based on conversational context*
+
+#### **Interactive Product Cards**
+![Product Card Hover Effect](SearchEngineApplication/assets/SecondSearchOnHoverProductCard.png)
+*Sophisticated hover effects with professional animations*
+
+#### **Detailed Product Modals**
+![Product Modal](SearchEngineApplication/assets/ProductModalPostSearchOnClick.png)
+*Comprehensive product information in elegant, scrollable modals*
+
+### **Professional Design System**
+- **Modern Aesthetic** - Clean, professional interface with gradient accents and smooth transitions
+- **Interactive Elements** - Sophisticated hover effects with scaling, lighting, and professional animations
+- **Responsive Layout** - Optimized for desktop, tablet, and mobile devices
+- **Accessibility** - WCAG-compliant design with proper color contrast and navigation
+- **Consistent Branding** - Unified color scheme and typography throughout the application
+
+### **Advanced UI Features Demonstrated**
+- **Dynamic Filtering** - Real-time filter application with visual feedback and state persistence
+- **Card Animations** - Professional hover effects with transform, scaling, and gradient lighting
+- **Conversational Interface** - Streaming responses with typing indicators and context awareness
+- **Modal System** - Elegant product details with scrollable content and professional styling
+- **Loading States** - Engaging progress indicators and smooth transitions
+- **State Management** - Persistent user context and filter selections across interactions
 
 ---
 
