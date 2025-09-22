@@ -13,11 +13,19 @@ def render_product_card(product: Dict) -> None:
     color_display = product.get('color', 'N/A') if product.get('color') else 'N/A'
     price_display = product.get('price', 'Price not available')
 
+    # Truncate title for header display
+    display_title = product['title'][:20] + '...' if len(product['title']) > 20 else product['title']
+
+    # Create modal first
+    modal_title = product['title'][:20] + '...' if len(product['title']) > 20 else product['title']
+    modal = Modal(modal_title, key=f"modal_{product['id']}", padding=20, max_width=700)
+
+    # Create card structure with content and button in proper layout
     st.markdown(
         f"""
-        <div class="card">
-            <div>
-                <div class="card-title">{product['title']}</div>
+        <div class="card product-card">
+            <div class="card-content">
+                <div class="card-title">{display_title}</div>
                 <div class="card-brand">{product['brand']}</div>
                 <div style="color: #94A3B8; margin-top: 0.5rem;">
                     Color: {color_display} | {price_display}
@@ -28,37 +36,68 @@ def render_product_card(product: Dict) -> None:
         unsafe_allow_html=True
     )
 
-    modal = Modal(product['title'], key=f"modal_{product['id']}", padding=20, max_width=640)
-    if st.button("View Details", key=f"details_{product['id']}", use_container_width=True):
-        logger.info(f"Opening modal for product: {product['title']}")
-        modal.open()
+    # Add button below the card content, right-aligned
+    _, button_col = st.columns([2, 1])
+    with button_col:
+        if st.button("View Details", key=f"details_{product['id']}", type="primary", use_container_width=True):
+            logger.info(f"Opening modal for product: {product['title']}")
+            modal.open()
 
     if modal.is_open():
         with modal.container():
-            st.markdown(f"### {product['title']}")
+            # Add custom CSS for the modal
+            st.markdown(
+                """
+                <style>
+                .modal-content-container {
+                    max-height: 500px;
+                    overflow-y: auto;
+                    padding-right: 10px;
+                }
+                .modal-content-container::-webkit-scrollbar {
+                    width: 8px;
+                }
+                .modal-content-container::-webkit-scrollbar-track {
+                    background: #1E293B;
+                    border-radius: 4px;
+                }
+                .modal-content-container::-webkit-scrollbar-thumb {
+                    background: #14B8A6;
+                    border-radius: 4px;
+                }
+                .modal-content-container::-webkit-scrollbar-thumb:hover {
+                    background: #0F766E;
+                }
+                </style>
+                """,
+                unsafe_allow_html=True
+            )
+
+            # Create scrollable container
+            st.markdown('<div class="modal-content-container">', unsafe_allow_html=True)
+
+            # Main details in a clean layout
             col1, col2 = st.columns(2)
 
             with col1:
                 st.markdown(f"**Brand:** {product['brand']}")
                 st.markdown(f"**Color:** {color_display}")
-                st.markdown(f"**Price:** {price_display}")
-                if rating > 0:
-                    st.markdown(f"**Rating:** {stars} ({rating}/5)")
 
             with col2:
-                st.markdown(f"**Product ID:** {product['id']}")
-                if product.get('reviews', 0) > 0:
-                    st.markdown(f"**Reviews:** {product['reviews']}")
+                st.markdown(f"**Product Code:** {product['id']}")
+                st.markdown(f"**Price:** {price_display}")
 
+            # Description with character limit
             if product.get('description'):
+                st.markdown("---")
                 st.markdown("**Description:**")
-                # Remove HTML tags from description for better display
+                # Remove HTML tags and limit characters
                 clean_description = product['description'].replace('<br>', '\n').replace('<BR>', '\n')
+                if len(clean_description) > 400:
+                    clean_description = clean_description[:400] + "..."
                 st.markdown(clean_description)
 
-            if product.get('bullet_points'):
-                st.markdown("**Key Features:**")
-                st.markdown(product['bullet_points'])
+            st.markdown('</div>', unsafe_allow_html=True)
 
 def render_search_results(products: List[Dict]) -> None:
     """Render the complete search results section"""
@@ -66,8 +105,10 @@ def render_search_results(products: List[Dict]) -> None:
 
     st.header("Search Results")
 
-    results_container = st.container(height=800)
+    results_container = st.container(height=800, border=False)
     with results_container:
+        # Add padding wrapper to prevent card hover overflow
+        st.markdown('<div style="padding: 1.5rem; margin: 0.5rem;">', unsafe_allow_html=True)
         if products:
             grid_cols = st.columns(2)
             for i, product in enumerate(products):
@@ -76,3 +117,5 @@ def render_search_results(products: List[Dict]) -> None:
         else:
             logger.warning("No products to display")
             st.info("No products found.")
+
+        st.markdown('</div>', unsafe_allow_html=True)

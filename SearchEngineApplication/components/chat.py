@@ -31,7 +31,6 @@ def render_chat_interface(session_id: str = None) -> None:
         st.session_state.session_id = None
         st.rerun()
 
-    # Adjust chat container height to leave room for input
     chat_container = st.container(height=650, border=False)
 
     with chat_container:
