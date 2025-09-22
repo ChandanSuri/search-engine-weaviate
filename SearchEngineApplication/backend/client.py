@@ -38,7 +38,7 @@ class OpenAIClientSingleton:
         self,
         messages: List[Dict],
         previous_response_id: Optional[str] = None,
-        max_tokens: int = 150
+        max_tokens: int = 800
     ) -> Dict:
         """
         Create a response using OpenAI Responses API

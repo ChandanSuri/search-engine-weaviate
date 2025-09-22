@@ -99,31 +99,36 @@ custom_css = """
         border: 1px solid #334155;
     }
 
-    /* Fix sidebar icon rendering */
-    [data-testid="stSidebarNav"] button,
-    [data-testid="collapsedControl"] button,
-    [data-testid="stSidebar"] button {
-        font-family: 'Inter', 'Source Sans Pro', sans-serif !important;
+    /* Hide all sidebar toggle elements and related controls */
+    [data-testid="collapsedControl"],
+    [data-testid="stSidebarNav"] button[kind="headerNoPadding"],
+    button[data-testid="baseButton-header"],
+    button[kind="header"],
+    [data-testid="stSidebarNavSeparator"],
+    [data-testid="stSidebarNavItems"] button:first-child,
+    .stSidebar button[kind="headerNoPadding"],
+    .stSidebar [data-testid="baseButton-header"],
+    div[data-testid="stToolbar"],
+    header[data-testid="stHeader"] {
+        display: none !important;
+        visibility: hidden !important;
     }
 
-    /* Ensure proper icon font loading */
-    [data-testid="stSidebarNav"] svg,
-    [data-testid="collapsedControl"] svg {
-        display: inline-block !important;
-        width: 16px !important;
-        height: 16px !important;
+    /* Keep sidebar always visible and nicely styled */
+    .stSidebar {
+        background-color: #0E1117 !important;
+        border-right: 1px solid #334155 !important;
     }
 
-    /* Fix sidebar expand/collapse button */
-    [data-testid="baseButton-header"] {
-        background-color: transparent !important;
-        color: #FAFAFA !important;
+    /* Make main content area adjust properly */
+    .main .block-container {
+        padding-left: 1rem !important;
+        max-width: none !important;
     }
 
-    /* Ensure sidebar control icons render correctly */
-    button[kind="headerNoPadding"] {
-        color: #FAFAFA !important;
-        font-size: 16px !important;
+    /* Hide any remaining toggle elements that might appear */
+    [class*="toggle"], [class*="Toggle"], [class*="collapse"], [class*="Collapse"] {
+        display: none !important;
     }
 </style>
 """

@@ -605,3 +605,382 @@ WIRELESS PLAN: Unl...
 2025-09-22 18:07:46,028 - routes - INFO - Getting products for session: d803de7a-7e9c-4b2c-b1d5-196b68e2c87d
 2025-09-22 18:07:46,029 - routes - INFO - Found 3 products for session d803de7a-7e9c-4b2c-b1d5-196b68e2c87d
 2025-09-22 18:07:46,029 - config - INFO - Response status: 200
+2025-09-22 18:12:06,179 - config - INFO - GET http://localhost:8000/
+2025-09-22 18:12:06,180 - routes - INFO - Health check endpoint accessed
+2025-09-22 18:12:06,180 - config - INFO - Response status: 200
+2025-09-22 18:12:17,323 - config - INFO - POST http://localhost:8000/chat/start
+2025-09-22 18:12:17,323 - routes - INFO - Starting new chat session for query: 'find me some sport shoes please' with filters - Brand: None, Color: None
+2025-09-22 18:12:17,323 - weaviate_client - INFO - Performing semantic search for: 'find me some sport shoes please' (limit: 10) - Attempt 1
+2025-09-22 18:12:17,406 - httpx - INFO - HTTP Request: GET https://4msziopcsdo8rzt7i7s73g.c0.us-east1.gcp.weaviate.cloud/v1/.well-known/ready "HTTP/1.1 200 OK"
+2025-09-22 18:12:18,179 - weaviate_client - INFO - Found 10 products for query: 'find me some sport shoes please' with filters: brand=None, color=None
+2025-09-22 18:12:18,180 - routes - INFO - Found 10 products for chat context
+2025-09-22 18:12:18,181 - routes - INFO - Sample products found: ['Soulsfeng Running Shoes Men Sneakers Fashion Lightweight Breathable Mesh Gym Training Shoes Traveling Sport Shoes(US9=EUR42.5)', "Sneakers Business Fashion Sneaker-RQWEIN Men's Fashion Sneakers Memory Foam Casual Shoes for Men Retro Oxford Sneaker（Blue,7", 'Sport Baseball Shoes -RQWEIN Fashion Knitted Outdoor Sneakers Lightweight Gym Athletic Shoe for Men Trail Workout Shoes（Gray,8']
+2025-09-22 18:12:18,182 - routes - INFO - Products context created with filters: SEARCH RESULTS FOR: 'find me some sport shoes please'
+
+- Soulsfeng Running Shoes Men Sneakers Fashion Lightweight Breathable Mesh Gym Training Shoes Traveling Sport Shoes(US9=EUR42.5) by Soulsfeng (Co...
+2025-09-22 18:12:18,182 - helpers - INFO - Processing chat start for query: 'find me some sport shoes please' (user: None)
+2025-09-22 18:12:18,182 - helpers - INFO - Creating system prompt with products_context: SEARCH RESULTS FOR: 'find me some sport shoes please'
+
+- Soulsfeng Running Shoes Men Sneakers Fashion Lightweight Breathable Mesh Gym Training Shoes Traveling Sport Shoes(US9=EUR42.5) by Soulsfeng (Color: Aopen)
+  Description: <strong>Design:</strong><br>The breathable mesh upper and supportive design give your feet comfy feeling.Plus,A durable bottom and toe cap means it's ...
+  Key Features: Light and Breathable: The lightweight freeknitted upper with fly knitting tech and breathable mesh s......
+2025-09-22 18:12:18,182 - client - INFO - Creating OpenAI response with 2 messages
+2025-09-22 18:12:22,377 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-09-22 18:12:22,378 - client - INFO - OpenAI response created successfully with ID: resp_68d1c9c25e588197bdd4ee43d6ca76290e127f89ac37e995
+2025-09-22 18:12:22,379 - helpers - INFO - Chat session created successfully: d1dfd631-fbb9-49f9-b924-6c5eae6bbf8b
+2025-09-22 18:12:22,379 - routes - INFO - Chat session d1dfd631-fbb9-49f9-b924-6c5eae6bbf8b stored successfully with 10 products
+2025-09-22 18:12:22,379 - config - INFO - Response status: 200
+2025-09-22 18:12:22,384 - config - INFO - GET http://localhost:8000/chat/d1dfd631-fbb9-49f9-b924-6c5eae6bbf8b/products
+2025-09-22 18:12:22,384 - routes - INFO - Getting products for session: d1dfd631-fbb9-49f9-b924-6c5eae6bbf8b
+2025-09-22 18:12:22,384 - routes - INFO - Found 10 products for session d1dfd631-fbb9-49f9-b924-6c5eae6bbf8b
+2025-09-22 18:12:22,384 - config - INFO - Response status: 200
+2025-09-22 18:12:22,400 - config - INFO - GET http://localhost:8000/search/brands
+2025-09-22 18:12:22,400 - routes - INFO - Fetching available brands
+2025-09-22 18:12:22,400 - weaviate_client - INFO - Fetching available brands using HTTP REST fetch method
+2025-09-22 18:12:22,507 - weaviate_client - INFO - HTTP REST method successful: Found 50 unique brands
+2025-09-22 18:12:22,507 - routes - INFO - Found 50 brands
+2025-09-22 18:12:22,507 - config - INFO - Response status: 200
+2025-09-22 18:12:22,509 - config - INFO - GET http://localhost:8000/search/colors
+2025-09-22 18:12:22,509 - routes - INFO - Fetching available colors
+2025-09-22 18:12:22,509 - weaviate_client - INFO - Fetching available colors using HTTP REST fetch method
+2025-09-22 18:12:22,616 - weaviate_client - INFO - HTTP REST method successful: Found 50 unique colors
+2025-09-22 18:12:22,616 - routes - INFO - Found 50 colors
+2025-09-22 18:12:22,617 - config - INFO - Response status: 200
+2025-09-22 18:14:32,497 - config - INFO - GET http://localhost:8000/
+2025-09-22 18:14:32,497 - routes - INFO - Health check endpoint accessed
+2025-09-22 18:14:32,497 - config - INFO - Response status: 200
+2025-09-22 18:14:33,970 - config - INFO - POST http://localhost:8000/chat/start
+2025-09-22 18:14:33,970 - routes - INFO - Starting new chat session for query: 'find me some sport shoes please' with filters - Brand: None, Color: None
+2025-09-22 18:14:33,970 - weaviate_client - INFO - Performing semantic search for: 'find me some sport shoes please' (limit: 10) - Attempt 1
+2025-09-22 18:14:34,379 - weaviate_client - INFO - Found 10 products for query: 'find me some sport shoes please' with filters: brand=None, color=None
+2025-09-22 18:14:34,380 - routes - INFO - Found 10 products for chat context
+2025-09-22 18:14:34,380 - routes - INFO - Sample products found: ['Soulsfeng Running Shoes Men Sneakers Fashion Lightweight Breathable Mesh Gym Training Shoes Traveling Sport Shoes(US9=EUR42.5)', "Sneakers Business Fashion Sneaker-RQWEIN Men's Fashion Sneakers Memory Foam Casual Shoes for Men Retro Oxford Sneaker（Blue,7", 'Sport Baseball Shoes -RQWEIN Fashion Knitted Outdoor Sneakers Lightweight Gym Athletic Shoe for Men Trail Workout Shoes（Gray,8']
+2025-09-22 18:14:34,380 - routes - INFO - Products context created with filters: SEARCH RESULTS FOR: 'find me some sport shoes please'
+
+- Soulsfeng Running Shoes Men Sneakers Fashion Lightweight Breathable Mesh Gym Training Shoes Traveling Sport Shoes(US9=EUR42.5) by Soulsfeng (Co...
+2025-09-22 18:14:34,380 - helpers - INFO - Processing chat start for query: 'find me some sport shoes please' (user: None)
+2025-09-22 18:14:34,380 - helpers - INFO - Creating system prompt with products_context: SEARCH RESULTS FOR: 'find me some sport shoes please'
+
+- Soulsfeng Running Shoes Men Sneakers Fashion Lightweight Breathable Mesh Gym Training Shoes Traveling Sport Shoes(US9=EUR42.5) by Soulsfeng (Color: Aopen)
+  Description: <strong>Design:</strong><br>The breathable mesh upper and supportive design give your feet comfy feeling.Plus,A durable bottom and toe cap means it's ...
+  Key Features: Light and Breathable: The lightweight freeknitted upper with fly knitting tech and breathable mesh s......
+2025-09-22 18:14:34,380 - client - INFO - Creating OpenAI response with 2 messages
+2025-09-22 18:14:37,241 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-09-22 18:14:37,244 - client - INFO - OpenAI response created successfully with ID: resp_68d1ca4a76a88191ac9bb5d8cf721fd50d22a0c1f440f96b
+2025-09-22 18:14:37,244 - helpers - INFO - Chat session created successfully: 782afa79-66aa-4d88-a808-1e4db7c2d134
+2025-09-22 18:14:37,244 - routes - INFO - Chat session 782afa79-66aa-4d88-a808-1e4db7c2d134 stored successfully with 10 products
+2025-09-22 18:14:37,245 - config - INFO - Response status: 200
+2025-09-22 18:14:37,252 - config - INFO - GET http://localhost:8000/chat/782afa79-66aa-4d88-a808-1e4db7c2d134/products
+2025-09-22 18:14:37,253 - routes - INFO - Getting products for session: 782afa79-66aa-4d88-a808-1e4db7c2d134
+2025-09-22 18:14:37,253 - routes - INFO - Found 10 products for session 782afa79-66aa-4d88-a808-1e4db7c2d134
+2025-09-22 18:14:37,254 - config - INFO - Response status: 200
+2025-09-22 18:14:37,274 - config - INFO - GET http://localhost:8000/search/brands
+2025-09-22 18:14:37,274 - routes - INFO - Fetching available brands
+2025-09-22 18:14:37,274 - weaviate_client - INFO - Fetching available brands using HTTP REST fetch method
+2025-09-22 18:14:37,407 - weaviate_client - INFO - HTTP REST method successful: Found 50 unique brands
+2025-09-22 18:14:37,407 - routes - INFO - Found 50 brands
+2025-09-22 18:14:37,407 - config - INFO - Response status: 200
+2025-09-22 18:14:37,410 - config - INFO - GET http://localhost:8000/search/colors
+2025-09-22 18:14:37,410 - routes - INFO - Fetching available colors
+2025-09-22 18:14:37,411 - weaviate_client - INFO - Fetching available colors using HTTP REST fetch method
+2025-09-22 18:14:37,527 - weaviate_client - INFO - HTTP REST method successful: Found 50 unique colors
+2025-09-22 18:14:37,528 - routes - INFO - Found 50 colors
+2025-09-22 18:14:37,528 - config - INFO - Response status: 200
+2025-09-22 18:16:17,307 - config - INFO - GET http://localhost:8000/
+2025-09-22 18:16:17,307 - routes - INFO - Health check endpoint accessed
+2025-09-22 18:16:17,307 - config - INFO - Response status: 200
+2025-09-22 18:16:20,218 - config - INFO - POST http://localhost:8000/chat/start
+2025-09-22 18:16:20,219 - routes - INFO - Starting new chat session for query: 'GIve me all the red hoodies' with filters - Brand: None, Color: None
+2025-09-22 18:16:20,219 - weaviate_client - INFO - Performing semantic search for: 'GIve me all the red hoodies' (limit: 10) - Attempt 1
+2025-09-22 18:16:20,458 - weaviate_client - INFO - Found 10 products for query: 'GIve me all the red hoodies' with filters: brand=None, color=None
+2025-09-22 18:16:20,458 - routes - INFO - Found 10 products for chat context
+2025-09-22 18:16:20,458 - routes - INFO - Sample products found: ['Vampire Premium {Batman} Collection Cars Batmobile Series iD Bundled with Red Rain Vinyl Heroes Figure + HW Arkham Knight + Dark Knight Bat Editions 3 Items', 'ValorSoul Unisex Movie Cosplay Hoodie Jacket Pullove Sweatshirt with Zippers, Color-1, X-Large', 'Ripple Junction Men’s Naruto Shippuden Kakashi with Hidden Leaf Village Symbol Cosplay Military-Style Hoodie, Olive']
+2025-09-22 18:16:20,458 - routes - INFO - Products context created with filters: SEARCH RESULTS FOR: 'GIve me all the red hoodies'
+
+- Vampire Premium {Batman} Collection Cars Batmobile Series iD Bundled with Red Rain Vinyl Heroes Figure + HW Arkham Knight + Dark Knight Bat Edition...
+2025-09-22 18:16:20,458 - helpers - INFO - Processing chat start for query: 'GIve me all the red hoodies' (user: None)
+2025-09-22 18:16:20,459 - helpers - INFO - Creating system prompt with products_context: SEARCH RESULTS FOR: 'GIve me all the red hoodies'
+
+- Vampire Premium {Batman} Collection Cars Batmobile Series iD Bundled with Red Rain Vinyl Heroes Figure + HW Arkham Knight + Dark Knight Bat Editions 3 Items by Hot Wheels
+- ValorSoul Unisex Movie Cosplay Hoodie Jacket Pullove Sweatshirt with Zippers, Color-1, X-Large by ValorSoul (Color: Color-1)
+  Description: <b>====== Unisex Movie Cosplay Hoodie Jacket Harley Quinn Hoodie ======</b><p><b>------ Size Chart ------</b><p>Small(Chest:104cm/40.9...
+2025-09-22 18:16:20,459 - client - INFO - Creating OpenAI response with 2 messages
+2025-09-22 18:16:22,106 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-09-22 18:16:22,106 - client - INFO - OpenAI response created successfully with ID: resp_68d1cab4a304819c920f9d5dd4dbd684097ef0740f9a8780
+2025-09-22 18:16:22,106 - helpers - INFO - Chat session created successfully: 6cdc4698-ec09-4829-a8ff-7e538ba83a44
+2025-09-22 18:16:22,107 - routes - INFO - Chat session 6cdc4698-ec09-4829-a8ff-7e538ba83a44 stored successfully with 10 products
+2025-09-22 18:16:22,107 - config - INFO - Response status: 200
+2025-09-22 18:16:22,110 - config - INFO - GET http://localhost:8000/chat/6cdc4698-ec09-4829-a8ff-7e538ba83a44/products
+2025-09-22 18:16:22,110 - routes - INFO - Getting products for session: 6cdc4698-ec09-4829-a8ff-7e538ba83a44
+2025-09-22 18:16:22,110 - routes - INFO - Found 10 products for session 6cdc4698-ec09-4829-a8ff-7e538ba83a44
+2025-09-22 18:16:22,111 - config - INFO - Response status: 200
+2025-09-22 18:16:22,124 - config - INFO - GET http://localhost:8000/search/brands
+2025-09-22 18:16:22,124 - routes - INFO - Fetching available brands
+2025-09-22 18:16:22,124 - weaviate_client - INFO - Fetching available brands using HTTP REST fetch method
+2025-09-22 18:16:22,224 - weaviate_client - INFO - HTTP REST method successful: Found 50 unique brands
+2025-09-22 18:16:22,224 - routes - INFO - Found 50 brands
+2025-09-22 18:16:22,224 - config - INFO - Response status: 200
+2025-09-22 18:16:22,226 - config - INFO - GET http://localhost:8000/search/colors
+2025-09-22 18:16:22,226 - routes - INFO - Fetching available colors
+2025-09-22 18:16:22,226 - weaviate_client - INFO - Fetching available colors using HTTP REST fetch method
+2025-09-22 18:16:22,329 - weaviate_client - INFO - HTTP REST method successful: Found 50 unique colors
+2025-09-22 18:16:22,329 - routes - INFO - Found 50 colors
+2025-09-22 18:16:22,329 - config - INFO - Response status: 200
+2025-09-22 18:16:33,783 - config - INFO - GET http://localhost:8000/
+2025-09-22 18:16:33,784 - routes - INFO - Health check endpoint accessed
+2025-09-22 18:16:33,784 - config - INFO - Response status: 200
+2025-09-22 18:16:37,819 - config - INFO - POST http://localhost:8000/chat/start
+2025-09-22 18:16:37,820 - routes - INFO - Starting new chat session for query: 'sport shoes' with filters - Brand: None, Color: None
+2025-09-22 18:16:37,820 - weaviate_client - INFO - Performing semantic search for: 'sport shoes' (limit: 10) - Attempt 1
+2025-09-22 18:16:38,377 - weaviate_client - INFO - Found 10 products for query: 'sport shoes' with filters: brand=None, color=None
+2025-09-22 18:16:38,377 - routes - INFO - Found 10 products for chat context
+2025-09-22 18:16:38,377 - routes - INFO - Sample products found: ['Soulsfeng Running Shoes Men Sneakers Fashion Lightweight Breathable Mesh Gym Training Shoes Traveling Sport Shoes(US9=EUR42.5)', "Men's Retro Color Blocked Fashion Sneakers Sport Running Shoes Walking Casual Athletic Shoes(1,8.5)", 'JSLEAP White Running Shoes Walking Athletic for Men Casual Slip Fashion Sports Outdoor Shoes (White, 6.5)']
+2025-09-22 18:16:38,377 - routes - INFO - Products context created with filters: SEARCH RESULTS FOR: 'sport shoes'
+
+- Soulsfeng Running Shoes Men Sneakers Fashion Lightweight Breathable Mesh Gym Training Shoes Traveling Sport Shoes(US9=EUR42.5) by Soulsfeng (Color: Aopen)
+  Descri...
+2025-09-22 18:16:38,377 - helpers - INFO - Processing chat start for query: 'sport shoes' (user: None)
+2025-09-22 18:16:38,377 - helpers - INFO - Creating system prompt with products_context: SEARCH RESULTS FOR: 'sport shoes'
+
+- Soulsfeng Running Shoes Men Sneakers Fashion Lightweight Breathable Mesh Gym Training Shoes Traveling Sport Shoes(US9=EUR42.5) by Soulsfeng (Color: Aopen)
+  Description: <strong>Design:</strong><br>The breathable mesh upper and supportive design give your feet comfy feeling.Plus,A durable bottom and toe cap means it's ...
+  Key Features: Light and Breathable: The lightweight freeknitted upper with fly knitting tech and breathable mesh s...
+- Men's Retro Color...
+2025-09-22 18:16:38,377 - client - INFO - Creating OpenAI response with 2 messages
+2025-09-22 18:16:42,037 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-09-22 18:16:42,040 - client - INFO - OpenAI response created successfully with ID: resp_68d1cac676a481a0a905b2690ca5a79407c9f2af57648d67
+2025-09-22 18:16:42,041 - helpers - INFO - Chat session created successfully: 52706946-d9c5-4874-a61c-da89bac47c4b
+2025-09-22 18:16:42,041 - routes - INFO - Chat session 52706946-d9c5-4874-a61c-da89bac47c4b stored successfully with 10 products
+2025-09-22 18:16:42,042 - config - INFO - Response status: 200
+2025-09-22 18:16:42,047 - config - INFO - GET http://localhost:8000/chat/52706946-d9c5-4874-a61c-da89bac47c4b/products
+2025-09-22 18:16:42,048 - routes - INFO - Getting products for session: 52706946-d9c5-4874-a61c-da89bac47c4b
+2025-09-22 18:16:42,048 - routes - INFO - Found 10 products for session 52706946-d9c5-4874-a61c-da89bac47c4b
+2025-09-22 18:16:42,048 - config - INFO - Response status: 200
+2025-09-22 18:16:42,071 - config - INFO - GET http://localhost:8000/search/brands
+2025-09-22 18:16:42,072 - routes - INFO - Fetching available brands
+2025-09-22 18:16:42,072 - weaviate_client - INFO - Fetching available brands using HTTP REST fetch method
+2025-09-22 18:16:42,177 - weaviate_client - INFO - HTTP REST method successful: Found 50 unique brands
+2025-09-22 18:16:42,178 - routes - INFO - Found 50 brands
+2025-09-22 18:16:42,178 - config - INFO - Response status: 200
+2025-09-22 18:16:42,180 - config - INFO - GET http://localhost:8000/search/colors
+2025-09-22 18:16:42,180 - routes - INFO - Fetching available colors
+2025-09-22 18:16:42,180 - weaviate_client - INFO - Fetching available colors using HTTP REST fetch method
+2025-09-22 18:16:42,292 - weaviate_client - INFO - HTTP REST method successful: Found 50 unique colors
+2025-09-22 18:16:42,292 - routes - INFO - Found 50 colors
+2025-09-22 18:16:42,292 - config - INFO - Response status: 200
+2025-09-22 18:19:11,193 - config - INFO - GET http://localhost:8000/
+2025-09-22 18:19:11,193 - routes - INFO - Health check endpoint accessed
+2025-09-22 18:19:11,194 - config - INFO - Response status: 200
+2025-09-22 18:19:13,725 - config - INFO - POST http://localhost:8000/chat/start
+2025-09-22 18:19:13,726 - routes - INFO - Starting new chat session for query: 'sport shoes' with filters - Brand: None, Color: None
+2025-09-22 18:19:13,726 - weaviate_client - INFO - Performing semantic search for: 'sport shoes' (limit: 10) - Attempt 1
+2025-09-22 18:19:13,856 - httpx - INFO - HTTP Request: GET https://4msziopcsdo8rzt7i7s73g.c0.us-east1.gcp.weaviate.cloud/v1/.well-known/ready "HTTP/1.1 200 OK"
+2025-09-22 18:19:14,545 - weaviate_client - INFO - Found 10 products for query: 'sport shoes' with filters: brand=None, color=None
+2025-09-22 18:19:14,547 - routes - INFO - Found 10 products for chat context
+2025-09-22 18:19:14,547 - routes - INFO - Sample products found: ['Soulsfeng Running Shoes Men Sneakers Fashion Lightweight Breathable Mesh Gym Training Shoes Traveling Sport Shoes(US9=EUR42.5)', "Men's Retro Color Blocked Fashion Sneakers Sport Running Shoes Walking Casual Athletic Shoes(1,8.5)", 'JSLEAP White Running Shoes Walking Athletic for Men Casual Slip Fashion Sports Outdoor Shoes (White, 6.5)']
+2025-09-22 18:19:14,548 - routes - INFO - Products context created with filters: SEARCH RESULTS FOR: 'sport shoes'
+
+- Soulsfeng Running Shoes Men Sneakers Fashion Lightweight Breathable Mesh Gym Training Shoes Traveling Sport Shoes(US9=EUR42.5) by Soulsfeng (Color: Aopen)
+  Descri...
+2025-09-22 18:19:14,548 - helpers - INFO - Processing chat start for query: 'sport shoes' (user: None)
+2025-09-22 18:19:14,548 - helpers - INFO - Creating system prompt with products_context: SEARCH RESULTS FOR: 'sport shoes'
+
+- Soulsfeng Running Shoes Men Sneakers Fashion Lightweight Breathable Mesh Gym Training Shoes Traveling Sport Shoes(US9=EUR42.5) by Soulsfeng (Color: Aopen)
+  Description: <strong>Design:</strong><br>The breathable mesh upper and supportive design give your feet comfy feeling.Plus,A durable bottom and toe cap means it's ...
+  Key Features: Light and Breathable: The lightweight freeknitted upper with fly knitting tech and breathable mesh s...
+- Men's Retro Color...
+2025-09-22 18:19:14,548 - client - INFO - Creating OpenAI response with 2 messages
+2025-09-22 18:19:17,730 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-09-22 18:19:17,730 - client - INFO - OpenAI response created successfully with ID: resp_68d1cb629ed081a0a0c14e3be2c199760e036510cf355471
+2025-09-22 18:19:17,731 - helpers - INFO - Chat session created successfully: d846b010-fbac-4223-a91e-d2ff60f2f2f1
+2025-09-22 18:19:17,731 - routes - INFO - Chat session d846b010-fbac-4223-a91e-d2ff60f2f2f1 stored successfully with 10 products
+2025-09-22 18:19:17,731 - config - INFO - Response status: 200
+2025-09-22 18:19:17,733 - config - INFO - GET http://localhost:8000/chat/d846b010-fbac-4223-a91e-d2ff60f2f2f1/products
+2025-09-22 18:19:17,733 - routes - INFO - Getting products for session: d846b010-fbac-4223-a91e-d2ff60f2f2f1
+2025-09-22 18:19:17,733 - routes - INFO - Found 10 products for session d846b010-fbac-4223-a91e-d2ff60f2f2f1
+2025-09-22 18:19:17,733 - config - INFO - Response status: 200
+2025-09-22 18:19:17,743 - config - INFO - GET http://localhost:8000/search/brands
+2025-09-22 18:19:17,743 - routes - INFO - Fetching available brands
+2025-09-22 18:19:17,743 - weaviate_client - INFO - Fetching available brands using HTTP REST fetch method
+2025-09-22 18:19:17,855 - weaviate_client - INFO - HTTP REST method successful: Found 50 unique brands
+2025-09-22 18:19:17,855 - routes - INFO - Found 50 brands
+2025-09-22 18:19:17,855 - config - INFO - Response status: 200
+2025-09-22 18:19:17,857 - config - INFO - GET http://localhost:8000/search/colors
+2025-09-22 18:19:17,857 - routes - INFO - Fetching available colors
+2025-09-22 18:19:17,857 - weaviate_client - INFO - Fetching available colors using HTTP REST fetch method
+2025-09-22 18:19:18,003 - weaviate_client - INFO - HTTP REST method successful: Found 50 unique colors
+2025-09-22 18:19:18,004 - routes - INFO - Found 50 colors
+2025-09-22 18:19:18,004 - config - INFO - Response status: 200
+2025-09-22 18:20:38,630 - config - INFO - GET http://localhost:8000/
+2025-09-22 18:20:38,631 - routes - INFO - Health check endpoint accessed
+2025-09-22 18:20:38,631 - config - INFO - Response status: 200
+2025-09-22 18:20:40,289 - config - INFO - POST http://localhost:8000/chat/start
+2025-09-22 18:20:40,289 - routes - INFO - Starting new chat session for query: 'sport shoes' with filters - Brand: None, Color: None
+2025-09-22 18:20:40,289 - weaviate_client - INFO - Performing semantic search for: 'sport shoes' (limit: 10) - Attempt 1
+2025-09-22 18:20:40,869 - weaviate_client - INFO - Found 10 products for query: 'sport shoes' with filters: brand=None, color=None
+2025-09-22 18:20:40,870 - routes - INFO - Found 10 products for chat context
+2025-09-22 18:20:40,870 - routes - INFO - Sample products found: ['Soulsfeng Running Shoes Men Sneakers Fashion Lightweight Breathable Mesh Gym Training Shoes Traveling Sport Shoes(US9=EUR42.5)', "Men's Retro Color Blocked Fashion Sneakers Sport Running Shoes Walking Casual Athletic Shoes(1,8.5)", 'JSLEAP White Running Shoes Walking Athletic for Men Casual Slip Fashion Sports Outdoor Shoes (White, 6.5)']
+2025-09-22 18:20:40,870 - routes - INFO - Products context created with filters: SEARCH RESULTS FOR: 'sport shoes'
+
+- Soulsfeng Running Shoes Men Sneakers Fashion Lightweight Breathable Mesh Gym Training Shoes Traveling Sport Shoes(US9=EUR42.5) by Soulsfeng (Color: Aopen)
+  Descri...
+2025-09-22 18:20:40,870 - helpers - INFO - Processing chat start for query: 'sport shoes' (user: None)
+2025-09-22 18:20:40,870 - helpers - INFO - Creating system prompt with products_context: SEARCH RESULTS FOR: 'sport shoes'
+
+- Soulsfeng Running Shoes Men Sneakers Fashion Lightweight Breathable Mesh Gym Training Shoes Traveling Sport Shoes(US9=EUR42.5) by Soulsfeng (Color: Aopen)
+  Description: <strong>Design:</strong><br>The breathable mesh upper and supportive design give your feet comfy feeling.Plus,A durable bottom and toe cap means it's ...
+  Key Features: Light and Breathable: The lightweight freeknitted upper with fly knitting tech and breathable mesh s...
+- Men's Retro Color...
+2025-09-22 18:20:40,870 - client - INFO - Creating OpenAI response with 2 messages
+2025-09-22 18:20:44,043 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-09-22 18:20:44,043 - client - INFO - OpenAI response created successfully with ID: resp_68d1cbb8f76881a196ef7259f3d019d50e40debf63116ab0
+2025-09-22 18:20:44,043 - helpers - INFO - Chat session created successfully: be96187f-1074-4ff4-8884-3188f0be1b33
+2025-09-22 18:20:44,043 - routes - INFO - Chat session be96187f-1074-4ff4-8884-3188f0be1b33 stored successfully with 10 products
+2025-09-22 18:20:44,043 - config - INFO - Response status: 200
+2025-09-22 18:20:44,046 - config - INFO - GET http://localhost:8000/chat/be96187f-1074-4ff4-8884-3188f0be1b33/products
+2025-09-22 18:20:44,046 - routes - INFO - Getting products for session: be96187f-1074-4ff4-8884-3188f0be1b33
+2025-09-22 18:20:44,046 - routes - INFO - Found 10 products for session be96187f-1074-4ff4-8884-3188f0be1b33
+2025-09-22 18:20:44,046 - config - INFO - Response status: 200
+2025-09-22 18:20:44,057 - config - INFO - GET http://localhost:8000/search/brands
+2025-09-22 18:20:44,057 - routes - INFO - Fetching available brands
+2025-09-22 18:20:44,057 - weaviate_client - INFO - Fetching available brands using HTTP REST fetch method
+2025-09-22 18:20:44,168 - weaviate_client - INFO - HTTP REST method successful: Found 50 unique brands
+2025-09-22 18:20:44,169 - routes - INFO - Found 50 brands
+2025-09-22 18:20:44,169 - config - INFO - Response status: 200
+2025-09-22 18:20:44,171 - config - INFO - GET http://localhost:8000/search/colors
+2025-09-22 18:20:44,171 - routes - INFO - Fetching available colors
+2025-09-22 18:20:44,171 - weaviate_client - INFO - Fetching available colors using HTTP REST fetch method
+2025-09-22 18:20:44,283 - weaviate_client - INFO - HTTP REST method successful: Found 50 unique colors
+2025-09-22 18:20:44,283 - routes - INFO - Found 50 colors
+2025-09-22 18:20:44,284 - config - INFO - Response status: 200
+2025-09-22 18:20:59,324 - config - INFO - POST http://localhost:8000/chat/message
+2025-09-22 18:20:59,325 - routes - INFO - Sending message to session be96187f-1074-4ff4-8884-3188f0be1b33: 'Try again?' with filters - Brand: None, Color: None
+2025-09-22 18:20:59,325 - helpers - INFO - Processing message in session be96187f-1074-4ff4-8884-3188f0be1b33: 'Try again?' with filters - Brand: None, Color: None
+2025-09-22 18:21:01,282 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-22 18:21:01,291 - helpers - INFO - Generated search query from conversation: 'sport shoes options'
+2025-09-22 18:21:01,291 - helpers - INFO - Generated search query: 'sport shoes options'
+2025-09-22 18:21:01,291 - weaviate_client - INFO - Performing semantic search for: 'sport shoes options' (limit: 10) - Attempt 1
+2025-09-22 18:21:01,602 - weaviate_client - INFO - Found 10 products for query: 'sport shoes options' with filters: brand=None, color=None
+2025-09-22 18:21:01,603 - helpers - INFO - Found 10 products for generated query: 'sport shoes options' with filters: brand=None, color=None
+2025-09-22 18:21:01,603 - helpers - INFO - Products context created: SEARCH RESULTS FOR: 'sport shoes options'
+
+- Soulsfeng Running Shoes Men Sneakers Fashion Lightweight Breathable Mesh Gym Training Shoes Traveling Sport Shoes(US9=EUR42.5) by Soulsfeng (Color: Aopen)
+...
+2025-09-22 18:21:01,603 - helpers - INFO - Creating system prompt with products_context: SEARCH RESULTS FOR: 'sport shoes options'
+
+- Soulsfeng Running Shoes Men Sneakers Fashion Lightweight Breathable Mesh Gym Training Shoes Traveling Sport Shoes(US9=EUR42.5) by Soulsfeng (Color: Aopen)
+  Description: <strong>Design:</strong><br>The breathable mesh upper and supportive design give your feet comfy feeling.Plus,A durable bottom and toe cap means it's ...
+  Key Features: Light and Breathable: The lightweight freeknitted upper with fly knitting tech and breathable mesh s...
+- Men's Ret...
+2025-09-22 18:21:01,603 - client - INFO - Creating OpenAI response with 4 messages
+2025-09-22 18:21:05,798 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-09-22 18:21:05,802 - client - INFO - OpenAI response created successfully with ID: resp_68d1cbcdb01881a1b624eddf27c074a30e40debf63116ab0
+2025-09-22 18:21:05,802 - helpers - INFO - Message processed successfully with 10 products found
+2025-09-22 18:21:05,802 - routes - INFO - Message processed successfully with search query: 'sport shoes options', found 10 products
+2025-09-22 18:21:05,802 - config - INFO - Response status: 200
+2025-09-22 18:21:08,457 - config - INFO - GET http://localhost:8000/chat/be96187f-1074-4ff4-8884-3188f0be1b33/products
+2025-09-22 18:21:08,457 - routes - INFO - Getting products for session: be96187f-1074-4ff4-8884-3188f0be1b33
+2025-09-22 18:21:08,457 - routes - INFO - Found 10 products for session be96187f-1074-4ff4-8884-3188f0be1b33
+2025-09-22 18:21:08,458 - config - INFO - Response status: 200
+2025-09-22 18:21:23,836 - config - INFO - POST http://localhost:8000/chat/message
+2025-09-22 18:21:23,836 - routes - INFO - Sending message to session be96187f-1074-4ff4-8884-3188f0be1b33: 'Try again?' with filters - Brand: adidas, Color: Black
+2025-09-22 18:21:23,836 - helpers - INFO - Processing message in session be96187f-1074-4ff4-8884-3188f0be1b33: 'Try again?' with filters - Brand: adidas, Color: Black
+2025-09-22 18:21:24,892 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-22 18:21:24,908 - helpers - INFO - Generated search query from conversation: 'sport shoes options'
+2025-09-22 18:21:24,908 - helpers - INFO - Generated search query: 'sport shoes options'
+2025-09-22 18:21:24,908 - weaviate_client - INFO - Performing semantic search for: 'sport shoes options' (limit: 10) - Attempt 1
+2025-09-22 18:21:25,645 - weaviate_client - INFO - Found 10 products for query: 'sport shoes options' with filters: brand=adidas, color=Black
+2025-09-22 18:21:25,645 - helpers - INFO - Found 10 products for generated query: 'sport shoes options' with filters: brand=adidas, color=Black
+2025-09-22 18:21:25,645 - helpers - INFO - Products context created: SEARCH RESULTS FOR: 'sport shoes options' (FILTERED BY: Brand: adidas, Color: Black)
+
+- adidas Men's Solarthon Primegreen Spikeless Golf Shoes, Core Black/Purple/Solar Gold, 9.5 by adidas (Color: Core...
+2025-09-22 18:21:25,645 - helpers - INFO - Creating system prompt with products_context: SEARCH RESULTS FOR: 'sport shoes options' (FILTERED BY: Brand: adidas, Color: Black)
+
+- adidas Men's Solarthon Primegreen Spikeless Golf Shoes, Core Black/Purple/Solar Gold, 9.5 by adidas (Color: Core Black/Purple/Solar Gold)
+  Key Features: Inspired by long summer days, these golf shoes prioritize comfort. From the Boost midsole for an ene...
+- adidas Predator 20.4 Indoor Sala Soccer Shoe (mens) Core Black/Active Red/Core Black 9 by adidas (Color: Core Black/Active Red/Core Black)
+  Key Feature...
+2025-09-22 18:21:25,645 - client - INFO - Creating OpenAI response with 6 messages
+2025-09-22 18:21:29,160 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-09-22 18:21:29,160 - client - INFO - OpenAI response created successfully with ID: resp_68d1cbe5b42881a1b8ac47a92289d5f90e40debf63116ab0
+2025-09-22 18:21:29,161 - helpers - INFO - Message processed successfully with 10 products found
+2025-09-22 18:21:29,161 - routes - INFO - Message processed successfully with search query: 'sport shoes options', found 10 products
+2025-09-22 18:21:29,161 - config - INFO - Response status: 200
+2025-09-22 18:21:32,354 - config - INFO - GET http://localhost:8000/chat/be96187f-1074-4ff4-8884-3188f0be1b33/products
+2025-09-22 18:21:32,354 - routes - INFO - Getting products for session: be96187f-1074-4ff4-8884-3188f0be1b33
+2025-09-22 18:21:32,354 - routes - INFO - Found 10 products for session be96187f-1074-4ff4-8884-3188f0be1b33
+2025-09-22 18:21:32,354 - config - INFO - Response status: 200
+2025-09-22 18:22:34,669 - config - INFO - Shutting down Search Engine Chat API...
+2025-09-22 18:22:35,121 - client - INFO - Creating new OpenAI client singleton instance
+2025-09-22 18:22:35,138 - client - INFO - OpenAI async client initialized successfully
+2025-09-22 18:22:35,141 - config - INFO - Starting Search Engine Chat API...
+2025-09-22 18:22:35,141 - config - INFO - Debug mode: True
+2025-09-22 18:22:35,141 - config - INFO - OpenAI API configured: Yes
+2025-09-22 18:22:35,141 - config - INFO - Weaviate configured: Yes
+2025-09-22 18:22:35,141 - config - INFO - OpenAI client initialized successfully
+2025-09-22 18:22:49,528 - config - INFO - POST http://localhost:8000/chat/start
+2025-09-22 18:22:49,528 - routes - INFO - Starting new chat session for query: 'sport shoes' with filters - Brand: adidas, Color: Black
+2025-09-22 18:22:49,724 - weaviate_client - INFO - Creating new Weaviate client singleton instance
+2025-09-22 18:22:49,789 - httpx - INFO - HTTP Request: GET https://4msziopcsdo8rzt7i7s73g.c0.us-east1.gcp.weaviate.cloud/v1/meta "HTTP/1.1 200 OK"
+2025-09-22 18:22:49,930 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-09-22 18:22:49,938 - weaviate_client - INFO - Connected to Weaviate Cloud with timeout configuration
+2025-09-22 18:22:49,965 - httpx - INFO - HTTP Request: GET https://4msziopcsdo8rzt7i7s73g.c0.us-east1.gcp.weaviate.cloud/v1/.well-known/ready "HTTP/1.1 200 OK"
+2025-09-22 18:22:49,966 - weaviate_client - INFO - Weaviate client v4 initialized successfully with robust connection settings
+2025-09-22 18:22:49,966 - weaviate_client - INFO - Performing semantic search for: 'sport shoes' (limit: 10) - Attempt 1
+2025-09-22 18:22:50,240 - weaviate_client - INFO - Found 10 products for query: 'sport shoes' with filters: brand=adidas, color=Black
+2025-09-22 18:22:50,240 - routes - INFO - Found 10 products for chat context
+2025-09-22 18:22:50,241 - routes - INFO - Sample products found: ["adidas Men's Solarthon Primegreen Spikeless Golf Shoes, Core Black/Purple/Solar Gold, 9.5", 'adidas Indoor Sala Predator 20.4 Soccer Shoe (unisex-child) Core Black/Active Red/Core Black 4 Big Kid', 'adidas Predator 20.4 Indoor Sala Soccer Shoe (mens) Core Black/Active Red/Core Black 9']
+2025-09-22 18:22:50,241 - routes - INFO - Products context created with filters: SEARCH RESULTS FOR: 'sport shoes' (FILTERED BY: Brand: adidas, Color: Black)
+
+- adidas Men's Solarthon Primegreen Spikeless Golf Shoes, Core Black/Purple/Solar Gold, 9.5 by adidas (Color: Core Black/P...
+2025-09-22 18:22:50,241 - helpers - INFO - Processing chat start for query: 'sport shoes' (user: None)
+2025-09-22 18:22:50,241 - helpers - INFO - Creating system prompt with products_context: SEARCH RESULTS FOR: 'sport shoes' (FILTERED BY: Brand: adidas, Color: Black)
+
+- adidas Men's Solarthon Primegreen Spikeless Golf Shoes, Core Black/Purple/Solar Gold, 9.5 by adidas (Color: Core Black/Purple/Solar Gold)
+  Key Features: Inspired by long summer days, these golf shoes prioritize comfort. From the Boost midsole for an ene...
+- adidas Indoor Sala Predator 20.4 Soccer Shoe (unisex-child) Core Black/Active Red/Core Black 4 Big Kid by adidas (Color: Core Black/Active Red/Core Black)
+  Key...
+2025-09-22 18:22:50,241 - client - INFO - Creating OpenAI response with 2 messages
+2025-09-22 18:22:52,432 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-09-22 18:22:52,457 - client - INFO - OpenAI response created successfully with ID: resp_68d1cc3a7698819ca36a13f84e8dfe970a111c700ef3efcc
+2025-09-22 18:22:52,457 - helpers - INFO - Chat session created successfully: dbfacba5-aa8a-400c-ad29-24977cb17bd0
+2025-09-22 18:22:52,457 - routes - INFO - Chat session dbfacba5-aa8a-400c-ad29-24977cb17bd0 stored successfully with 10 products
+2025-09-22 18:22:52,457 - config - INFO - Response status: 200
+2025-09-22 18:22:52,460 - config - INFO - GET http://localhost:8000/chat/dbfacba5-aa8a-400c-ad29-24977cb17bd0/products
+2025-09-22 18:22:52,460 - routes - INFO - Getting products for session: dbfacba5-aa8a-400c-ad29-24977cb17bd0
+2025-09-22 18:22:52,460 - routes - INFO - Found 10 products for session dbfacba5-aa8a-400c-ad29-24977cb17bd0
+2025-09-22 18:22:52,460 - config - INFO - Response status: 200
+2025-09-22 18:23:02,315 - config - INFO - POST http://localhost:8000/search
+2025-09-22 18:23:02,316 - routes - INFO - Searching for products: 'sport shoes (with filters: Brand: adidas, Color: Black)'
+2025-09-22 18:23:02,316 - weaviate_client - INFO - Performing semantic search for: 'sport shoes (with filters: Brand: adidas, Color: Black)' (limit: 10) - Attempt 1
+2025-09-22 18:23:02,662 - weaviate_client - INFO - Found 10 products for query: 'sport shoes (with filters: Brand: adidas, Color: Black)' with filters: brand=None, color=None
+2025-09-22 18:23:02,662 - routes - INFO - Search completed: found 10 products
+2025-09-22 18:23:02,663 - config - INFO - Response status: 200
+2025-09-22 18:23:06,810 - config - INFO - POST http://localhost:8000/chat/message
+2025-09-22 18:23:06,810 - routes - INFO - Sending message to session dbfacba5-aa8a-400c-ad29-24977cb17bd0: 'Again?' with filters - Brand: None, Color: None
+2025-09-22 18:23:06,810 - helpers - INFO - Processing message in session dbfacba5-aa8a-400c-ad29-24977cb17bd0: 'Again?' with filters - Brand: None, Color: None
+2025-09-22 18:23:07,562 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-22 18:23:07,575 - helpers - INFO - Generated search query from conversation: 'adidas sport shoes'
+2025-09-22 18:23:07,575 - helpers - INFO - Generated search query: 'adidas sport shoes'
+2025-09-22 18:23:07,575 - weaviate_client - INFO - Performing semantic search for: 'adidas sport shoes' (limit: 10) - Attempt 1
+2025-09-22 18:23:07,754 - weaviate_client - INFO - Found 10 products for query: 'adidas sport shoes' with filters: brand=None, color=None
+2025-09-22 18:23:07,754 - helpers - INFO - Found 10 products for generated query: 'adidas sport shoes' with filters: brand=None, color=None
+2025-09-22 18:23:07,754 - helpers - INFO - Products context created: SEARCH RESULTS FOR: 'adidas sport shoes'
+
+- adidas Men's Unisex Adicross ZX Primeblue Spikeless Golf Shoes, Footwear White/Core Black/Orbit Indigo, 9.5 by adidas (Color: Footwear White/Core Black/Orbi...
+2025-09-22 18:23:07,754 - helpers - INFO - Creating system prompt with products_context: SEARCH RESULTS FOR: 'adidas sport shoes'
+
+- adidas Men's Unisex Adicross ZX Primeblue Spikeless Golf Shoes, Footwear White/Core Black/Orbit Indigo, 9.5 by adidas (Color: Footwear White/Core Black/Orbit Indigo)
+  Key Features: With cushioned comfort and a spikeless design, these adidas golf shoes offer all-day versatility tha...
+- adidas boys Goletto Vii Fg J Football Shoe, Core Black/Shock Pink/Shock Pink, 1.5 Little Kid US by adidas (Color: Core Black/Shock Pink/Shock Pink)
+  Key Features: Foot...
+2025-09-22 18:23:07,754 - client - INFO - Creating OpenAI response with 4 messages
+2025-09-22 18:23:09,433 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-09-22 18:23:09,434 - client - INFO - OpenAI response created successfully with ID: resp_68d1cc4bd1c8819c954745c1e30413ce0a111c700ef3efcc
+2025-09-22 18:23:09,434 - helpers - INFO - Message processed successfully with 10 products found
+2025-09-22 18:23:09,434 - routes - INFO - Message processed successfully with search query: 'adidas sport shoes', found 10 products
+2025-09-22 18:23:09,434 - config - INFO - Response status: 200
+2025-09-22 18:23:10,967 - config - INFO - GET http://localhost:8000/chat/dbfacba5-aa8a-400c-ad29-24977cb17bd0/products
+2025-09-22 18:23:10,968 - routes - INFO - Getting products for session: dbfacba5-aa8a-400c-ad29-24977cb17bd0
+2025-09-22 18:23:10,968 - routes - INFO - Found 10 products for session dbfacba5-aa8a-400c-ad29-24977cb17bd0
+2025-09-22 18:23:10,969 - config - INFO - Response status: 200
